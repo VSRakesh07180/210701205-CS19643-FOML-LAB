@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+Plant Disease Detection
+{% endblock pagetitle %}
+{% block body %}
+<style>
+  body {
+    overflow-x: hidden;
+  }
+
+  @media only screen and (max-width: 830px) {
+    .laptop {
+      display: none;
+    }
+  }
+
+  @media (min-width: 830px) and (max-width: 1536px) {
+    .mobile {
+      display: none;
+    }
+  }
+
+
+  /* Button animation styles */
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+
+  .btn-animated {
+    background-color: #4ECC5A;
+    color: rgb(236, 227, 227);
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-animated::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transition: all 0.5s ease;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+  }
+
+  .btn-animated:hover::before {
+    width: 0;
+    height: 0;
+  }
+
+  .btn-animated:hover {
+    animation: pulse 1s infinite;
+  }
+
+  .btn-animated:focus {
+    outline: none;
+  }
+
+  .btn-animated:active {
+    transform: scale(0.95);
+  }
+
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class='mobile p-5'>
+  <div class="row mb-5 text-center text-white">
+  </div>
+</div>
+
+<div class="row mb-5 text-center text-white laptop">
+  <div class="col-lg-10 mx-auto">
+    <h1 class="display-4" style="padding-top: 2%;font-weight: 400;color: rgb(234, 238, 234);"><b>Try our AI Powered
+           Plant Disease Detection</b></h1>
+  </div>
+</div>
+
+<center class="laptop">
+  <a href="/index">
+    <button class="btn btn-success btn-animated">Try Now</button>
+  </a>
+</center>
+
+{% endblock body %}
